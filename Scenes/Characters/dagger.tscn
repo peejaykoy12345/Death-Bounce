@@ -35,3 +35,4 @@ rotation = -0.668707
 shape = SubResource("RectangleShape2D_yiwrv")
 
 [node name="LevelTimer" type="Timer" parent="."]
+autostart = true

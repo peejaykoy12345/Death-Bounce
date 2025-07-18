@@ -5,9 +5,11 @@
 
 [node name="Arena" type="Node2D"]
 
-[node name="Sword" parent="." instance=ExtResource("1_ra5jo")]
+[node name="Sword" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_ra5jo")]
+camera = NodePath("../Camera2D")
 
-[node name="Dagger" parent="." instance=ExtResource("2_nnts3")]
+[node name="Dagger" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_nnts3")]
 position = Vector2(99, 3)
+camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
