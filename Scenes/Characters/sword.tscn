@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cui77ouai234x"]
+
+[ext_resource type="Texture2D" uid="uid://bmbp7tmkgjeou" path="res://Assets/Images/sword.png" id="1_e2tp6"]
+[ext_resource type="Texture2D" uid="uid://drktrabifcimb" path="res://Assets/Images/green_circle.png" id="1_m80vk"]
+
+[node name="Sword" type="CharacterBody2D"]
+
+[node name="GreenCircle" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 1.0842e-19)
+scale = Vector2(0.427126, 0.431373)
+texture = ExtResource("1_m80vk")
+
+[node name="Rotator" type="Node2D" parent="."]
+
+[node name="Sword" type="Sprite2D" parent="Rotator"]
+position = Vector2(83, -70)
+texture = ExtResource("1_e2tp6")
