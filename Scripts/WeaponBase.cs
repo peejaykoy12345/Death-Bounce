@@ -12,20 +12,14 @@ public partial class WeaponBase : CharacterBody2D
 	[ExportGroup("Defense Settings")]
 	[Export] public float health = 100f;
 
-	protected Sprite2D sprite;
+    [ExportGroup("Movement Settings")]
+    [Export] public float speed = 100f;
+    
     protected Node2D rotator;
-	protected CollisionShape2D collision;
 
 	public override void _Ready()
 	{
-		sprite = GetNode<Sprite2D>("Sprite");
 		rotator = GetNode<Area2D>("Rotator");
-		collision = GetNode<CollisionShape2D>("CollisionShape2D");
-
-		float scale = radius * 2 / sprite.Texture.GetSize().X;
-		sprite.Scale = new Vector2(scale, scale);
-		((CircleShape2D)collision.Shape).Radius = radius;
-
 	}
 
 	public override void _Process(double delta)

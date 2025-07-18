@@ -12,6 +12,7 @@ size = Vector2(76.6746, 20)
 
 [node name="Dagger" type="CharacterBody2D"]
 script = ExtResource("1_53a2o")
+spritePath = NodePath("CrimsonRedCircle")
 
 [node name="CrimsonRedCircle" type="Sprite2D" parent="."]
 position = Vector2(-9.53674e-07, 1)

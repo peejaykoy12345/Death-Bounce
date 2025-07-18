@@ -9,13 +9,6 @@ public partial class Sword : WeaponBase
 	{
 		base._Ready();
 
-		// Use specific sprite node if needed
-		sprite = GetNode<Sprite2D>("GreenCircle");
-
-		float scale = radius * 2 / sprite.Texture.GetSize().X;
-		sprite.Scale = new Vector2(scale, scale);
-		((CircleShape2D)collision.Shape).Radius = radius;
-
 		levelTimer = GetNode<Timer>("LevelTimer");
 		levelTimer.Timeout += OnLevelUp;
 		levelTimer.Start();
