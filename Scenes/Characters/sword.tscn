@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cui77ouai234x"]
 
-[ext_resource type="Script" uid="uid://yj0cnupqpqoj" path="res://Scripts/sword.cs" id="1_2n2bb"]
+[ext_resource type="Script" uid="uid://yj0cnupqpqoj" path="res://Scripts/Sword.cs" id="1_2n2bb"]
 [ext_resource type="Texture2D" uid="uid://bmbp7tmkgjeou" path="res://Assets/Images/sword.png" id="1_e2tp6"]
 [ext_resource type="Texture2D" uid="uid://drktrabifcimb" path="res://Assets/Images/green_circle.png" id="1_m80vk"]
 
@@ -28,10 +28,11 @@ texture = ExtResource("1_e2tp6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
 position = Vector2(93.3884, -87.1815)
 rotation = 0.840199
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2n2bb")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_librm")
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true

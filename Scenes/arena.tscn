@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cay5wtdvwq4t1"]
+
+[ext_resource type="PackedScene" uid="uid://cui77ouai234x" path="res://Scenes/Characters/sword.tscn" id="1_ra5jo"]
+[ext_resource type="PackedScene" uid="uid://b80mivrjnc56d" path="res://Scenes/Characters/dagger.tscn" id="2_nnts3"]
+
+[node name="Arena" type="Node2D"]
+
+[node name="Sword" parent="." instance=ExtResource("1_ra5jo")]
+
+[node name="Dagger" parent="." instance=ExtResource("2_nnts3")]
+position = Vector2(99, 3)
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Sword : WeaponBase
+public partial class Dagger : WeaponBase
 {
 	private Timer levelTimer;
 
@@ -9,8 +9,7 @@ public partial class Sword : WeaponBase
 	{
 		base._Ready();
 
-		// Use specific sprite node if needed
-		sprite = GetNode<Sprite2D>("GreenCircle");
+		sprite = GetNode<Sprite2D>("CrimsonRedCircle");
 
 		float scale = radius * 2 / sprite.Texture.GetSize().X;
 		sprite.Scale = new Vector2(scale, scale);
