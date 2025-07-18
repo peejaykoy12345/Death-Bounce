@@ -7,7 +7,6 @@ public partial class Dagger : WeaponBase
 
 	public override void _Ready()
 	{
-		base._Ready();
 
 		levelTimer = GetNode<Timer>("LevelTimer");
 		levelTimer.Timeout += OnLevelUp;
@@ -21,7 +20,9 @@ public partial class Dagger : WeaponBase
 		if (body == this) return;
 
 		if (body.HasMethod("TakeDamage"))
+		{
 			body.Call("TakeDamage", damage);
+		}
 	}
 
 	private void OnLevelUp()

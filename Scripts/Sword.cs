@@ -7,7 +7,6 @@ public partial class Sword : WeaponBase
 
 	public override void _Ready()
 	{
-		base._Ready();
 
 		levelTimer = GetNode<Timer>("LevelTimer");
 		levelTimer.Timeout += OnLevelUp;
