@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class WeaponBase : CharacterBody2D
 {
@@ -32,12 +33,14 @@ public partial class WeaponBase : CharacterBody2D
 
 	protected Vector2 screenSize;
 
-	protected float left;
-	protected float right;
-	protected float top;
-	protected float bottom;
+	private float left;
+	private float right;
+	private float top;
+	private float bottom;
 
-	protected const float bounce_offset = 40f;
+	private bool isNotFrozen = true;
+
+	private const float bounce_offset = 40f;
 
 	public override void _Ready()
 	{
@@ -56,22 +59,29 @@ public partial class WeaponBase : CharacterBody2D
 		dx = rand.Next(0, 2) == 0 ? -1 : 1;
 		dy = rand.Next(0, 2) == 0 ? -1 : 1;
 
-		rotator.AreaEntered += (Area2D area) =>
+		rotator.AreaEntered += async (Area2D area) =>
 		{
 			CharacterBody2D area_parent = (CharacterBody2D) area.GetParent();
-			if (area_parent.HasMethod("onParry")) area_parent.Call("onParry");
+			GD.Print($"parent check: {area_parent.Name} method check: {area_parent.HasMethod("onParry")}");
+			if (area_parent is WeaponBase wb)
+			{
+				await wb.onParry();
+			}
 		};
 	}
 
 	public override void _Process(double delta)
 	{
-		rotator.RotationDegrees += rotationSpeed * rotation_direction * (float) delta;
+		if (isNotFrozen) rotator.RotationDegrees += rotationSpeed * rotation_direction * (float) delta;
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Velocity = new Vector2(speed * dx, speed * dy);
-		MoveAndSlide();
+		if (isNotFrozen)
+		{
+			Velocity = new Vector2(speed * dx, speed * dy);
+			MoveAndSlide();
+		}
 
 		int slideCount = GetSlideCollisionCount();
 		for (int i = 0; i < slideCount; i++)
@@ -91,11 +101,13 @@ public partial class WeaponBase : CharacterBody2D
 		if (Position.Y <= top || Position.Y >= bottom) dy *= -1;
     }
 
-	public void onParry()
+	public async Task onParry()
 	{
 		GD.Print($"Ran from {this.Name}");
 		arena.Call("playParrySound");
 		rotation_direction *= -1;
+
+		await Freeze(0.2f);
 	}
 
 	public void BounceOffBody()
@@ -104,11 +116,27 @@ public partial class WeaponBase : CharacterBody2D
 		dy *= -1;
 	}
 
+	public async Task Freeze(float time)
+	{
+		isNotFrozen = false;
+		await ToSignal(GetTree().CreateTimer(time), "timeout");
+
+		isNotFrozen = true;
+	}
+
 	int count;
-	public void TakeDamage(float dmg)
+	public void TakeDamage(CharacterBody2D _attacker, float dmg)
 	{
 		health = Mathf.Max(0, health - dmg);
 		count++;
-		if (health <= 0) QueueFree();
+		if (health <= 0)
+		{
+			QueueFree();
+			return;
+		}
+
+		//if (attacker.HasMethod("Freeze")) attacker.Call("Freeze", 0.2);
+
+		//await Freeze(0.2f);
 	}
 }
