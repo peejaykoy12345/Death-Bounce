@@ -1,16 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cay5wtdvwq4t1"]
+[gd_scene load_steps=4 format=3 uid="uid://cay5wtdvwq4t1"]
 
 [ext_resource type="PackedScene" uid="uid://cui77ouai234x" path="res://Scenes/Characters/sword.tscn" id="1_ra5jo"]
 [ext_resource type="PackedScene" uid="uid://b80mivrjnc56d" path="res://Scenes/Characters/dagger.tscn" id="2_nnts3"]
+[ext_resource type="PackedScene" uid="uid://2fu3blcn8my7" path="res://Scenes/Characters/spear.tscn" id="3_nnts3"]
 
 [node name="Arena" type="Node2D"]
 
+[node name="Spear" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_nnts3")]
+position = Vector2(-128, 75)
+health = 1000.0
+camera = NodePath("../Camera2D")
+
 [node name="Sword" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_ra5jo")]
 damage = 30.0
+health = 1000.0
 camera = NodePath("../Camera2D")
 
 [node name="Dagger" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_nnts3")]
 position = Vector2(99, 3)
+health = 1000.0
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]

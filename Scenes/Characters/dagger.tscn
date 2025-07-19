@@ -5,34 +5,36 @@
 [ext_resource type="Texture2D" uid="uid://g2vxjkrgxp06" path="res://Assets/Images/dagger.png" id="3_0p06j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_53a2o"]
-radius = 37.054
+radius = 32.0156
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiwrv"]
-size = Vector2(76.6746, 20)
+size = Vector2(74.8633, 7.80224)
 
 [node name="Dagger" type="CharacterBody2D"]
 script = ExtResource("1_53a2o")
 
 [node name="CrimsonRedCircle" type="Sprite2D" parent="."]
-position = Vector2(-9.53674e-07, 1)
-scale = Vector2(0.406863, 0.401042)
+position = Vector2(-1.19209e-07, 1.42109e-14)
 texture = ExtResource("2_0p06j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_53a2o")
 
 [node name="Rotator" type="Area2D" parent="."]
+scale = Vector2(1.0048, 1.00904)
 
 [node name="Dagger" type="Sprite2D" parent="Rotator"]
-position = Vector2(62, -52)
-rotation = -2.29419
-scale = Vector2(0.445975, 0.497383)
+position = Vector2(81.6081, -38.6505)
+rotation = -5.25339
+scale = Vector2(0.832, 2)
 texture = ExtResource("3_0p06j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
-position = Vector2(74.2341, -60.5683)
-rotation = -0.668707
+position = Vector2(54.6072, -32.7452)
+rotation = -0.539639
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yiwrv")
 
 [node name="LevelTimer" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true

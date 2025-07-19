@@ -1,0 +1,26 @@
+using Godot;
+using System;
+
+public partial class Spear : WeaponBase
+{
+	private Timer levelTimer;
+	public override void _Ready()
+	{
+		base._Ready();
+
+		levelTimer = GetNode<Timer>("LevelTimer");
+		levelTimer.Timeout += () =>
+		{
+			level += 1;
+			rotationSpeed *= 1 + 0.1f * (Mathf.Log(1 + level) / Mathf.Log(2));
+			damage += 2f * Mathf.Sqrt(level);
+		};
+
+		((Area2D)rotator).BodyEntered += (Node2D body) =>
+		{
+			if (body == this) return;
+
+			if (body.HasMethod("TakeDamage")) body.Call("TakeDamage", damage);
+		};
+	}
+}

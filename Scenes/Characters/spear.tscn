@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://2fu3blcn8my7"]
+
+[ext_resource type="Texture2D" uid="uid://cfmjtsplj58k1" path="res://Assets/Images/yellow_circle.png" id="1_jbwjn"]
+[ext_resource type="Script" uid="uid://s470fl633eee" path="res://Scripts/Spear.cs" id="1_qlenb"]
+[ext_resource type="Texture2D" uid="uid://yjvkubpfy0k8" path="res://Assets/Images/spear.png" id="2_qlenb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kuey"]
+radius = 31.1448
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bakac"]
+size = Vector2(254.385, 15.9141)
+
+[node name="Spear" type="CharacterBody2D"]
+script = ExtResource("1_qlenb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jbwjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0kuey")
+
+[node name="Rotator" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="Spear" type="Sprite2D" parent="Rotator"]
+position = Vector2(148, 6)
+rotation = 1.53902
+scale = Vector2(1, 4)
+texture = ExtResource("2_qlenb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
+position = Vector2(150.744, -2.9022)
+rotation = -0.0429076
+shape = SubResource("RectangleShape2D_bakac")
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true

@@ -20,7 +20,7 @@ public partial class WeaponBase : CharacterBody2D
 	[Export] public Camera2D camera;
 
 	protected int dx;
-	protected int dy ;
+	protected int dy;
     
     protected Node2D rotator;
 
@@ -60,13 +60,36 @@ public partial class WeaponBase : CharacterBody2D
 		Velocity = new Vector2(speed * dx, speed * dy);
 		MoveAndSlide();
 
+		int slideCount = GetSlideCollisionCount();
+		for (int i = 0; i < slideCount; i++)
+		{
+			KinematicCollision2D collision = GetSlideCollision(i);
+			Node2D collider = (Node2D)collision.GetCollider();
+
+			if (collider == this) continue;
+			
+			if (collider is CharacterBody2D victim)
+			{
+				if (IsInstanceValid(victim) && victim.HasMethod("BounceOffBody")) victim.Call("BounceOffBody");
+			}
+		}
+
 		if (Position.X <= left || Position.X >= right) dx *= -1;
 		if (Position.Y <= top || Position.Y >= bottom) dy *= -1;
     }
 
+	public void BounceOffBody()
+	{
+		dx *= -1;
+		dy *= -1;
+	}
+
+	int count;
 	public void TakeDamage(float dmg)
 	{
 		health = Mathf.Max(0, health - dmg);
+		count++;
+		GD.Print($"I got hit from {this.Name}, health: {health}");
 		if (health <= 0) QueueFree();
 	}
 }
