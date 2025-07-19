@@ -4,6 +4,8 @@ using System;
 public partial class MeleeBase : WeaponBase
 {
 	protected Timer levelTimer;
+
+	public Func<float> rotationSpeedFormula;
 	public override void _Ready()
 	{
 		base._Ready();
@@ -12,13 +14,13 @@ public partial class MeleeBase : WeaponBase
 		levelTimer.Timeout += () =>
 		{
 			level += 1;
-			rotationSpeed += 30;
+			rotationSpeed = rotationSpeedFormula();
 			damage += 2f * Mathf.Sqrt(level);
 
 			if (level >= maxLevel) levelTimer.Stop();
 		};
 
-		((Area2D)rotator).BodyEntered += (Node2D body) =>
+		rotator.BodyEntered += (Node2D body) =>
 		{
 			if (body == this) return;
 

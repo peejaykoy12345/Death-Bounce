@@ -8,7 +8,7 @@
 radius = 32.0156
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiwrv"]
-size = Vector2(74.8633, 7.80224)
+size = Vector2(40.4282, 7.80224)
 
 [node name="Dagger" type="CharacterBody2D"]
 script = ExtResource("1_53a2o")
@@ -26,14 +26,15 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="Dagger" type="Sprite2D" parent="Rotator"]
-position = Vector2(81.6081, -38.6505)
+position = Vector2(56.218, -23.3964)
 rotation = -5.25339
-scale = Vector2(0.832, 2)
+scale = Vector2(0.832, 1.07437)
 texture = ExtResource("3_0p06j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
-position = Vector2(54.6072, -32.7452)
+position = Vector2(39.8364, -23.8984)
 rotation = -0.539639
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yiwrv")
 
 [node name="LevelTimer" type="Timer" parent="."]

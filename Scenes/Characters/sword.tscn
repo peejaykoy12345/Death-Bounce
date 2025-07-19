@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://drktrabifcimb" path="res://Assets/Images/green_circle.png" id="1_m80vk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n2bb"]
-size = Vector2(9.64209, 125.41)
+size = Vector2(9.64209, 84.5507)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_librm"]
 radius = 32.0
@@ -24,14 +24,15 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="Sword" type="Sprite2D" parent="Rotator"]
-position = Vector2(71.0252, -15.1138)
+position = Vector2(50.8152, -9.24856)
 rotation = 1.28834
-scale = Vector2(0.24268, 0.5)
+scale = Vector2(0.24268, 0.335595)
 texture = ExtResource("1_e2tp6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
-position = Vector2(68.4641, -14.2988)
+position = Vector2(48.9147, -8.36659)
 rotation = 1.27618
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2n2bb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

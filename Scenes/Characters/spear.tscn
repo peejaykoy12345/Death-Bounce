@@ -8,7 +8,7 @@
 radius = 31.1448
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bakac"]
-size = Vector2(254.385, 15.9141)
+size = Vector2(146.306, 15.9141)
 
 [node name="Spear" type="CharacterBody2D"]
 script = ExtResource("1_qlenb")
@@ -24,14 +24,15 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="Spear" type="Sprite2D" parent="Rotator"]
-position = Vector2(148, 6)
+position = Vector2(95.4663, 7.66989)
 rotation = 1.53902
-scale = Vector2(1, 4)
+scale = Vector2(1, 2.35749)
 texture = ExtResource("2_qlenb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
-position = Vector2(150.744, -2.9022)
+position = Vector2(96.7544, -0.584213)
 rotation = -0.0429076
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bakac")
 
 [node name="LevelTimer" type="Timer" parent="."]

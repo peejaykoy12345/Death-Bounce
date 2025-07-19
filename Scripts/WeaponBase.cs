@@ -38,7 +38,8 @@ public partial class WeaponBase : CharacterBody2D
 	private float top;
 	private float bottom;
 
-	private bool isNotFrozen = true;
+	// Status
+	protected bool isNotFrozen = true;
 
 	private const float bounce_offset = 40f;
 
@@ -85,17 +86,17 @@ public partial class WeaponBase : CharacterBody2D
 
 		int slideCount = GetSlideCollisionCount();
 		for (int i = 0; i < slideCount; i++)
-		{
-			KinematicCollision2D collision = GetSlideCollision(i);
-			Node2D collider = (Node2D)collision.GetCollider();
-
-			if (collider == this) continue;
-			
-			if (collider is CharacterBody2D victim)
 			{
-				if (IsInstanceValid(victim) && victim.HasMethod("BounceOffBody")) victim.Call("BounceOffBody");
+				KinematicCollision2D collision = GetSlideCollision(i);
+				Node2D collider = (Node2D)collision.GetCollider();
+
+				if (collider == this) continue;
+
+				if (collider is CharacterBody2D victim)
+				{
+					if (IsInstanceValid(victim) && victim.HasMethod("BounceOffBody")) victim.Call("BounceOffBody");
+				}
 			}
-		}
 
 		if (Position.X <= left || Position.X >= right) dx *= -1;
 		if (Position.Y <= top || Position.Y >= bottom) dy *= -1;
@@ -125,7 +126,7 @@ public partial class WeaponBase : CharacterBody2D
 	}
 
 	int count;
-	public void TakeDamage(CharacterBody2D _attacker, float dmg)
+	public async void TakeDamage(CharacterBody2D attacker, float dmg)
 	{
 		health = Mathf.Max(0, health - dmg);
 		count++;
@@ -135,8 +136,8 @@ public partial class WeaponBase : CharacterBody2D
 			return;
 		}
 
-		//if (attacker.HasMethod("Freeze")) attacker.Call("Freeze", 0.2);
+		if (attacker.HasMethod("Freeze")) attacker.Call("Freeze", 0.05f);
 
-		//await Freeze(0.2f);
+		await Freeze(0.05f);
 	}
 }

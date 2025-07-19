@@ -10,9 +10,11 @@ public partial class Dagger : MeleeBase
 
 	public override void _Ready()
 	{
+		rotationSpeedFormula = () => 400 + 25 * Mathf.Sqrt(level);
+
 		base._Ready();
 
-		((Area2D)rotator).BodyEntered += (Node2D body) =>
+		rotator.BodyEntered += (Node2D body) =>
 		{
 			if (body == this) return;
 
