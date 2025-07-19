@@ -32,7 +32,6 @@ texture = ExtResource("1_e2tp6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
 position = Vector2(48.9147, -8.36659)
 rotation = 1.27618
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2n2bb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -41,3 +40,9 @@ shape = SubResource("CircleShape2D_librm")
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="HealthIndicator" type="LineEdit" parent="."]
+offset_left = -34.0
+offset_top = -15.0
+offset_right = 34.5625
+offset_bottom = 16.0

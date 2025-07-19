@@ -40,3 +40,9 @@ shape = SubResource("RectangleShape2D_yiwrv")
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="HealthIndicator" type="LineEdit" parent="."]
+offset_left = -33.0
+offset_top = -16.0
+offset_right = 35.5625
+offset_bottom = 15.0

@@ -11,6 +11,7 @@ public partial class Dagger : MeleeBase
 	public override void _Ready()
 	{
 		rotationSpeedFormula = () => 400 + 25 * Mathf.Sqrt(level);
+		damageFormula = () => 2f * Mathf.Sqrt(level);
 
 		base._Ready();
 
@@ -38,7 +39,7 @@ public partial class Dagger : MeleeBase
 
 			if (IsInstanceValid(character))
 			{
-				character.Call("TakeDamage", this, damage);
+				character.Call("TakeDamageButWithoutStun", damage);
 			}
 		}
 	}

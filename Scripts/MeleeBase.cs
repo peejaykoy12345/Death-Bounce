@@ -6,6 +6,7 @@ public partial class MeleeBase : WeaponBase
 	protected Timer levelTimer;
 
 	public Func<float> rotationSpeedFormula;
+	public Func<float> damageFormula;
 	public override void _Ready()
 	{
 		base._Ready();
@@ -15,7 +16,7 @@ public partial class MeleeBase : WeaponBase
 		{
 			level += 1;
 			rotationSpeed = rotationSpeedFormula();
-			damage += 2f * Mathf.Sqrt(level);
+			damage = damageFormula();
 
 			if (level >= maxLevel) levelTimer.Stop();
 		};

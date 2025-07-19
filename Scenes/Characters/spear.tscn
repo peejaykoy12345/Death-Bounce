@@ -32,9 +32,14 @@ texture = ExtResource("2_qlenb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
 position = Vector2(96.7544, -0.584213)
 rotation = -0.0429076
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bakac")
 
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="HealthIndicator" type="LineEdit" parent="."]
+offset_left = -33.0
+offset_top = -15.0
+offset_right = 35.5625
+offset_bottom = 16.0
