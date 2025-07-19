@@ -22,6 +22,8 @@ shape = SubResource("CircleShape2D_53a2o")
 
 [node name="Rotator" type="Area2D" parent="."]
 scale = Vector2(1.0048, 1.00904)
+collision_layer = 2
+collision_mask = 3
 
 [node name="Dagger" type="Sprite2D" parent="Rotator"]
 position = Vector2(81.6081, -38.6505)
@@ -32,7 +34,6 @@ texture = ExtResource("3_0p06j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
 position = Vector2(54.6072, -32.7452)
 rotation = -0.539639
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yiwrv")
 
 [node name="LevelTimer" type="Timer" parent="."]

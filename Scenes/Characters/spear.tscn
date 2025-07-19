@@ -20,7 +20,8 @@ texture = ExtResource("1_jbwjn")
 shape = SubResource("CircleShape2D_0kuey")
 
 [node name="Rotator" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2
+collision_mask = 3
 
 [node name="Spear" type="Sprite2D" parent="Rotator"]
 position = Vector2(148, 6)

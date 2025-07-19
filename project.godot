@@ -18,3 +18,8 @@ config/icon="res://icon.svg"
 [dotnet]
 
 project/assembly_name="Death Bounce"
+
+[layer_names]
+
+2d_physics/layer_1="Character"
+2d_physics/layer_2="Weapon"

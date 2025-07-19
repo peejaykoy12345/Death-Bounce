@@ -8,21 +8,27 @@ public partial class WeaponBase : CharacterBody2D
 	[ExportGroup("Attack Settings")]
 	[Export] public float rotationSpeed = 500f;
 	[Export] public float damage = 10f;
-	[Export] public int level = 1;
 
 	[ExportGroup("Defense Settings")]
 	[Export] public float health = 100f;
 
     [ExportGroup("Movement Settings")]
     [Export] public float speed = 100f;
+	
+	[ExportGroup("Level Settings")]
+	[Export] public int level = 1;
+	[Export] public int maxLevel = 10;
 
 	[ExportGroup("Script Settings")]
 	[Export] public Camera2D camera;
 
+	public Node2D arena;
+
 	protected int dx;
 	protected int dy;
     
-    protected Node2D rotator;
+    protected Area2D rotator;
+	private int rotation_direction = 1;
 
 	protected Vector2 screenSize;
 
@@ -35,6 +41,7 @@ public partial class WeaponBase : CharacterBody2D
 
 	public override void _Ready()
 	{
+		arena = (Node2D)GetParent();
 
 		rotator = GetNode<Area2D>("Rotator");
 
@@ -48,11 +55,17 @@ public partial class WeaponBase : CharacterBody2D
 
 		dx = rand.Next(0, 2) == 0 ? -1 : 1;
 		dy = rand.Next(0, 2) == 0 ? -1 : 1;
+
+		rotator.AreaEntered += (Area2D area) =>
+		{
+			CharacterBody2D area_parent = (CharacterBody2D) area.GetParent();
+			if (area_parent.HasMethod("onParry")) area_parent.Call("onParry");
+		};
 	}
 
 	public override void _Process(double delta)
 	{
-		rotator.RotationDegrees += rotationSpeed * (float)delta;
+		rotator.RotationDegrees += rotationSpeed * rotation_direction * (float) delta;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -78,6 +91,13 @@ public partial class WeaponBase : CharacterBody2D
 		if (Position.Y <= top || Position.Y >= bottom) dy *= -1;
     }
 
+	public void onParry()
+	{
+		GD.Print($"Ran from {this.Name}");
+		arena.Call("playParrySound");
+		rotation_direction *= -1;
+	}
+
 	public void BounceOffBody()
 	{
 		dx *= -1;
@@ -89,7 +109,6 @@ public partial class WeaponBase : CharacterBody2D
 	{
 		health = Mathf.Max(0, health - dmg);
 		count++;
-		GD.Print($"I got hit from {this.Name}, health: {health}");
 		if (health <= 0) QueueFree();
 	}
 }

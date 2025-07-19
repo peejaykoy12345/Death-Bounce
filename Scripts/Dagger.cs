@@ -18,8 +18,10 @@ public partial class Dagger : WeaponBase
 		levelTimer.Timeout += () =>
 		{
 			level += 1;
-			rotationSpeed *= 1 + 0.1f * (Mathf.Log(1 + level) / Mathf.Log(2));
+			rotationSpeed += 30;
 			damage += 2f * Mathf.Sqrt(level);
+
+			if (level >= maxLevel) levelTimer.Stop();
 		};
 
 		poison_damage = damage / 4;

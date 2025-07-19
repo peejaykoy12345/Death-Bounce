@@ -20,6 +20,8 @@ texture = ExtResource("1_m80vk")
 
 [node name="Rotator" type="Area2D" parent="."]
 rotation = -0.186183
+collision_layer = 2
+collision_mask = 3
 
 [node name="Sword" type="Sprite2D" parent="Rotator"]
 position = Vector2(71.0252, -15.1138)
@@ -30,7 +32,6 @@ texture = ExtResource("1_e2tp6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
 position = Vector2(68.4641, -14.2988)
 rotation = 1.27618
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2n2bb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
