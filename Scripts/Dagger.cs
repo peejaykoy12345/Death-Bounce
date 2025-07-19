@@ -46,7 +46,6 @@ public partial class Dagger : WeaponBase
 		while (poison_affected_characters.Contains(character))
 		{
 			await ToSignal(GetTree().CreateTimer(1.0), "timeout");
-			GD.Print("This guy is getting brutally murked someone help him");
 
 			if (IsInstanceValid(character))
 			{

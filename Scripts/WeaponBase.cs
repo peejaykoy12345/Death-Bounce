@@ -67,7 +67,6 @@ public partial class WeaponBase : CharacterBody2D
 	public void TakeDamage(float dmg)
 	{
 		health = Mathf.Max(0, health - dmg);
-		// GD.Print($"Ow it hurt coming from {this.Name}");
 		if (health <= 0) QueueFree();
 	}
 }
