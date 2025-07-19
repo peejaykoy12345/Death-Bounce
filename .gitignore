@@ -11,4 +11,5 @@
 *.csproj
 *.sln
 *.import
+*.exe
 .mono/
