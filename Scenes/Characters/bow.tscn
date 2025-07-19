@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://suygixj4v101"]
+[gd_scene load_steps=8 format=3 uid="uid://suygixj4v101"]
 
 [ext_resource type="Script" uid="uid://c3kpxw2bli3am" path="res://Scripts/Bow.cs" id="1_gmfvn"]
 [ext_resource type="PackedScene" uid="uid://bqwy87f0suw1i" path="res://Scenes/Projectiles/arrow.tscn" id="2_v5y37"]
@@ -10,6 +10,8 @@ radius = 31.4006
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6x2t"]
 size = Vector2(16, 38)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5y37"]
 
 [node name="Bow" type="CharacterBody2D" node_paths=PackedStringArray("projectile_start_marker", "shoot_interval")]
 script = ExtResource("1_gmfvn")
@@ -48,7 +50,10 @@ shape = SubResource("RectangleShape2D_i6x2t")
 position = Vector2(43, 0)
 
 [node name="HealthIndicator" type="LineEdit" parent="."]
-offset_left = -33.0
+offset_left = -35.0
 offset_top = -16.0
-offset_right = 35.5625
+offset_right = 33.5625
 offset_bottom = 15.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v5y37")
+alignment = 1

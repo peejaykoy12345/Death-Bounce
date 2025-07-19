@@ -32,6 +32,7 @@ health = 1000.0
 camera = NodePath("../Camera2D")
 
 [node name="Bow" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_g2joa")]
+position = Vector2(-214, -112)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]

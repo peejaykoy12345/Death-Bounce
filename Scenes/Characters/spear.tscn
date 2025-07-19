@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://2fu3blcn8my7"]
+[gd_scene load_steps=7 format=3 uid="uid://2fu3blcn8my7"]
 
 [ext_resource type="Texture2D" uid="uid://cfmjtsplj58k1" path="res://Assets/Images/yellow_circle.png" id="1_jbwjn"]
 [ext_resource type="Script" uid="uid://s470fl633eee" path="res://Scripts/Spear.cs" id="1_qlenb"]
@@ -9,6 +9,8 @@ radius = 31.1448
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bakac"]
 size = Vector2(146.306, 15.9141)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlenb"]
 
 [node name="Spear" type="CharacterBody2D"]
 script = ExtResource("1_qlenb")
@@ -39,7 +41,10 @@ wait_time = 5.0
 autostart = true
 
 [node name="HealthIndicator" type="LineEdit" parent="."]
-offset_left = -33.0
+offset_left = -32.0
 offset_top = -15.0
-offset_right = 35.5625
+offset_right = 36.5625
 offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qlenb")
+alignment = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b80mivrjnc56d"]
+[gd_scene load_steps=7 format=3 uid="uid://b80mivrjnc56d"]
 
 [ext_resource type="Script" uid="uid://cy1ur4hjdy87r" path="res://Scripts/Dagger.cs" id="1_53a2o"]
 [ext_resource type="Texture2D" uid="uid://cm8twg6trugcb" path="res://Assets/Images/crimson_red_circle.png" id="2_0p06j"]
@@ -9,6 +9,8 @@ radius = 32.0156
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiwrv"]
 size = Vector2(40.4282, 7.80224)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0p06j"]
 
 [node name="Dagger" type="CharacterBody2D"]
 script = ExtResource("1_53a2o")
@@ -41,7 +43,10 @@ wait_time = 5.0
 autostart = true
 
 [node name="HealthIndicator" type="LineEdit" parent="."]
-offset_left = -33.0
+offset_left = -34.0
 offset_top = -16.0
-offset_right = 35.5625
+offset_right = 34.5625
 offset_bottom = 15.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0p06j")
+alignment = 1
