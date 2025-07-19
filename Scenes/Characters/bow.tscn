@@ -20,12 +20,14 @@ projectile_start_marker = NodePath("Rotator/ProjectileStartPosition")
 shoot_interval = NodePath("ShootInterval")
 rotationSpeed = 100.0
 health = 1000.0
+maxLevel = 7
 
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
 [node name="ShootInterval" type="Timer" parent="."]
+wait_time = 1.7
 autostart = true
 
 [node name="SoftCyanCircle" type="Sprite2D" parent="."]

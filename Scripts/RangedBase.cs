@@ -32,7 +32,7 @@ public partial class RangedBase : WeaponBase
         projectile_instantiated.damage = damage;
         projectile_instantiated.owner = this;
         projectile_instantiated.GlobalPosition = projectile_start_marker.GlobalPosition;
-        projectile_instantiated.GlobalRotation = rotator.GlobalRotation + 90f;
+        projectile_instantiated.GlobalRotation = rotator.GlobalRotation + Mathf.DegToRad(90f);
         Projectiles_Node.AddChild(projectile_instantiated);
     }
 }
