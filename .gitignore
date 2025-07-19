@@ -2,8 +2,9 @@
 .godot/
 /android/
 
-# uids
+# Godot cache
 *.cs.uid
 *.csproj
 *.sln
+*.import
 .mono/
