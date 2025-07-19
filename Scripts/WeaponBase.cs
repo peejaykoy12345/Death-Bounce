@@ -23,9 +23,10 @@ public partial class WeaponBase : CharacterBody2D
 	[ExportGroup("Script Settings")]
 	[Export] public Camera2D camera;
 
-	public Node2D arena;
+	protected Node2D arena;
+	protected AudioStreamPlayer2D HitSFX;
 
-	public LineEdit HealthIndicator;
+	protected LineEdit HealthIndicator;
 
 	protected int dx;
 	protected int dy;
@@ -48,11 +49,13 @@ public partial class WeaponBase : CharacterBody2D
 
 	public override void _Ready()
 	{
+		// Arena variables
 		arena = (Node2D)GetParent();
+		HitSFX = arena.GetNode<AudioStreamPlayer2D>("HitSFX");
 
+		// Scene variables
 		rotator = GetNode<Area2D>("Rotator");
 		levelTimer = GetNode<Timer>("LevelTimer");
-
 		HealthIndicator = GetNode<LineEdit>("HealthIndicator");
 
 		HealthIndicator.Text = health.ToString();
@@ -114,7 +117,6 @@ public partial class WeaponBase : CharacterBody2D
 
 	public async Task onParry()
 	{
-		GD.Print($"Ran from {this.Name}");
 		arena.Call("playParrySound");
 		rotation_direction *= -1;
 
@@ -139,6 +141,7 @@ public partial class WeaponBase : CharacterBody2D
 	public async void TakeDamage(CharacterBody2D attacker, float dmg)
 	{
 		health = Mathf.Max(0, health - dmg);
+		HitSFX.Play();
 		count++;
 		if (health <= 0)
 		{
