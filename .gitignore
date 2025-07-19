@@ -2,6 +2,10 @@
 .godot/
 /android/
 
+# Editor settings
+.vscode/
+*.vscode
+
 # Godot cache
 *.cs.uid
 *.csproj
