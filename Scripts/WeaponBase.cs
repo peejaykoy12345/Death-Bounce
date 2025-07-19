@@ -31,6 +31,7 @@ public partial class WeaponBase : CharacterBody2D
 	protected int dy;
 
 	protected Area2D rotator;
+	protected Timer levelTimer;
 	private int rotation_direction = 1;
 
 	protected Vector2 screenSize;
@@ -50,6 +51,7 @@ public partial class WeaponBase : CharacterBody2D
 		arena = (Node2D)GetParent();
 
 		rotator = GetNode<Area2D>("Rotator");
+		levelTimer = GetNode<Timer>("LevelTimer");
 
 		HealthIndicator = GetNode<LineEdit>("HealthIndicator");
 

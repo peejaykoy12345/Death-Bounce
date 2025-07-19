@@ -3,15 +3,12 @@ using System;
 
 public partial class MeleeBase : WeaponBase
 {
-	protected Timer levelTimer;
-
 	public Func<float> rotationSpeedFormula;
 	public Func<float> damageFormula;
 	public override void _Ready()
 	{
 		base._Ready();
 
-		levelTimer = GetNode<Timer>("LevelTimer");
 		levelTimer.Timeout += () =>
 		{
 			level += 1;
