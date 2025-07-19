@@ -1,3 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# uids
+*.cs.uid
+*.csproj
+*.sln
+.mono/
