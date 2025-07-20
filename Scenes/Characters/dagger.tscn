@@ -39,7 +39,7 @@ rotation = -0.539639
 shape = SubResource("RectangleShape2D_yiwrv")
 
 [node name="LevelTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 8.0
 autostart = true
 
 [node name="HealthIndicator" type="LineEdit" parent="."]

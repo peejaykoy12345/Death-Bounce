@@ -9,8 +9,6 @@ public partial class Bow : RangedBase
 	{
 		damageFormula = () => damage + 10f;
 
-		maxLevel = 5;
-
 		base._Ready();
 
 		levelTimer.Timeout += () => shoot_per_interval++;

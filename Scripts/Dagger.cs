@@ -6,12 +6,12 @@ public partial class Dagger : MeleeBase
 {
 	// A list for storing every character who is poisoned
 	private List<CharacterBody2D> poison_affected_characters = new List<CharacterBody2D>();
-	private float poison_damage;
+	private int poison_damage = 25;
 
 	public override void _Ready()
 	{
-		rotationSpeedFormula = () => 400 + 25 * level;
-		damageFormula = () => damage + 30;
+		rotationSpeedFormula = () => 800 + 25 * level;
+		damageFormula = () => damage + 50;
 
 		base._Ready();
 
