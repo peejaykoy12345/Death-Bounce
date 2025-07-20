@@ -46,7 +46,7 @@ stream = ExtResource("5_csrox")
 [node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_g2joa")
 
-[node name="Button" type="Button" parent="."]
+[node name="RestartButton" type="Button" parent="."]
 offset_left = -70.0
 offset_top = -39.0
 offset_right = 76.0
