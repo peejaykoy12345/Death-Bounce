@@ -26,12 +26,14 @@ public partial class Dagger : MeleeBase
 		};
 	}
 
+	// To apply poison
+	// Note to future me: Theres only one of these functions
 	private async void ApplyPoison(CharacterBody2D character)
 	{
 		if (poison_affected_characters.Contains(character)) return;
 
 		poison_affected_characters.Add(character);
-		_ = RemovePoisonAfterDelay(character); 
+		_ = RemovePoisonAfterDelay(character);
 
 		while (poison_affected_characters.Contains(character))
 		{
@@ -39,7 +41,7 @@ public partial class Dagger : MeleeBase
 
 			if (IsInstanceValid(character))
 			{
-				character.Call("TakeDamageButWithoutStun", damage);
+				character.Call("TakeDamageButWithoutStun", poison_damage);
 			}
 		}
 	}
