@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://cay5wtdvwq4t1"]
 
-[ext_resource type="Script" uid="uid://bicu7tgascnw5" path="res://Scripts/Arena.cs" id="1_kcpg1"]
+[ext_resource type="Script" uid="uid://bhbhk0jvfe4g7" path="res://Scripts/Arena.cs" id="1_kcpg1"]
 [ext_resource type="PackedScene" uid="uid://cui77ouai234x" path="res://Scenes/Characters/sword.tscn" id="1_ra5jo"]
 [ext_resource type="PackedScene" uid="uid://b80mivrjnc56d" path="res://Scenes/Characters/dagger.tscn" id="2_nnts3"]
 [ext_resource type="PackedScene" uid="uid://2fu3blcn8my7" path="res://Scenes/Characters/spear.tscn" id="3_nnts3"]
-[ext_resource type="AudioStream" uid="uid://c66h4l3bwab28" path="res://Assets/Sound FX/parry_sfx.mp3" id="5_csrox"]
+[ext_resource type="AudioStream" uid="uid://xncjyebyau2r" path="res://Assets/Sound FX/parry_sfx.mp3" id="5_csrox"]
 [ext_resource type="PackedScene" uid="uid://suygixj4v101" path="res://Scenes/Characters/bow.tscn" id="5_g2joa"]
-[ext_resource type="AudioStream" uid="uid://c2njywrj1k7id" path="res://Assets/Sound FX/sword_blade_slicing_flesh.mp3" id="7_g2joa"]
+[ext_resource type="AudioStream" uid="uid://vfkx4ukffjxb" path="res://Assets/Sound FX/sword_blade_slicing_flesh.mp3" id="7_g2joa"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_kcpg1")
@@ -45,3 +45,11 @@ stream = ExtResource("5_csrox")
 
 [node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_g2joa")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -70.0
+offset_top = -39.0
+offset_right = 76.0
+offset_bottom = 37.0
+action_mode = 0
+text = "RESTART"
