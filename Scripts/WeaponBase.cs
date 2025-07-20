@@ -141,7 +141,6 @@ public partial class WeaponBase : CharacterBody2D
 	int count;
 	public async void TakeDamage(WeaponBase attacker, float dmg)
 	{
-		GD.Print($"Attacker: {attacker.Name}, Victim: {this.Name}, attacker damage: {attacker.damage}, damage dealt: {(int) dmg}");
 		health = Mathf.Max(0, health - (int) dmg);
 		HitSFX.Play();
 		count++;
