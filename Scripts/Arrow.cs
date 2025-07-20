@@ -8,7 +8,7 @@ public partial class Arrow : Area2D
     [ExportGroup("Script Settings")]
     [Export] public VisibleOnScreenNotifier2D VisibleOnScreenNotifier;
 
-    public CharacterBody2D owner;
+    public RangedBase owner;
 
     private const float speed = 500.0f;
 

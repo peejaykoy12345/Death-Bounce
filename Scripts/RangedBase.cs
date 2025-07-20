@@ -23,6 +23,8 @@ public partial class RangedBase : WeaponBase
         levelTimer.Timeout += () =>
         {
             damage = damageFormula();
+            level++;
+            if (level >= maxLevel) levelTimer.Stop();
         };
     }
 

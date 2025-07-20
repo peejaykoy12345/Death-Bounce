@@ -11,7 +11,7 @@ public partial class WeaponBase : CharacterBody2D
 	[Export] public float damage = 10f;
 
 	[ExportGroup("Defense Settings")]
-	[Export] public float health = 100f;
+	[Export] public int health = 1000;
 
 	[ExportGroup("Movement Settings")]
 	[Export] public float speed = 100f;
@@ -74,11 +74,12 @@ public partial class WeaponBase : CharacterBody2D
 		rotator.AreaEntered += async (Area2D area) =>
 		{
 			CharacterBody2D area_parent = (CharacterBody2D)area.GetParent();
-			GD.Print($"parent check: {area_parent.Name} method check: {area_parent.HasMethod("onParry")}");
 			if (area_parent is WeaponBase wb)
 			{
 				await wb.onParry();
 			}
+
+			if (area is Arrow arrow) arrow.QueueFree();
 		};
 	}
 
@@ -138,9 +139,10 @@ public partial class WeaponBase : CharacterBody2D
 	}
 
 	int count;
-	public async void TakeDamage(CharacterBody2D attacker, float dmg)
+	public async void TakeDamage(WeaponBase attacker, float dmg)
 	{
-		health = Mathf.Max(0, health - dmg);
+		GD.Print($"Attacker: {attacker.Name}, Victim: {this.Name}, attacker damage: {attacker.damage}, damage dealt: {(int) dmg}");
+		health = Mathf.Max(0, health - (int) dmg);
 		HitSFX.Play();
 		count++;
 		if (health <= 0)
@@ -156,6 +158,6 @@ public partial class WeaponBase : CharacterBody2D
 
 	public void TakeDamageButWithoutStun(float dmg)
 	{
-		health = Mathf.Max(0, health - dmg);
+		health = Mathf.Max(1, health - (int)dmg);
 	}
 }

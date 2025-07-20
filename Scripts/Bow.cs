@@ -7,7 +7,9 @@ public partial class Bow : RangedBase
 	private int shoot_per_interval = 1;
 	public override void _Ready()
 	{
-		damageFormula = () => damage * 1.5f;
+		damageFormula = () => damage + 10f;
+
+		maxLevel = 5;
 
 		base._Ready();
 

@@ -6,7 +6,7 @@ public partial class Spear : MeleeBase
 	public override void _Ready()
 	{
 		rotationSpeedFormula = () => rotationSpeed;
-		damageFormula = () => 2f * Mathf.Sqrt(level);
+		damageFormula = () => damage + 30;
 
 		base._Ready();
 	}
