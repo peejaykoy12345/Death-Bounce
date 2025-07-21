@@ -7,6 +7,8 @@ public partial class Arena : Node2D
 	private Button RestartButton;
 
 	private AudioStreamPlayer2D ParrySFX;
+
+	private bool win_claimed = false;
 	public override void _Ready()
 	{
 		ParrySFX = GetNode<AudioStreamPlayer2D>("ParrySFX");
@@ -32,7 +34,11 @@ public partial class Arena : Node2D
 
 		if (weapon_count <= 1)
 		{
-			if (lastWeaponSelected != null) ((WinTracker)GetNode("/root/WinTracker")).AddWin(lastWeaponSelected.Name, 1);
+			if (!win_claimed && lastWeaponSelected != null)
+			{
+				GetNode<WinTracker>("/root/WinTracker").AddWin(lastWeaponSelected.Name, 1);
+				win_claimed = true;
+			}
 			RestartButton.Visible = true;
 		}
     }

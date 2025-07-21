@@ -52,7 +52,11 @@ public partial class WinTracker : Node
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);
-            winHistory = JsonSerializer.Deserialize<Dictionary<string, int>>(json) ?? new();
+            
+            if (!string.IsNullOrWhiteSpace(json))
+            {
+                winHistory = JsonSerializer.Deserialize<Dictionary<string, int>>(json) ?? new();
+            }
         }
     }
 }
