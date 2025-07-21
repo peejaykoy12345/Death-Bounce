@@ -10,7 +10,7 @@ public partial class Dagger : MeleeBase
 
 	public override void _Ready()
 	{
-		rotationSpeedFormula = () => 800 + 25 * level;
+		rotationSpeedFormula = () => rotationSpeed + 25 * level;
 		damageFormula = () => damage + 50;
 
 		base._Ready();
