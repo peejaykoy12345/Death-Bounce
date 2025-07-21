@@ -5,8 +5,8 @@ public partial class Sword : MeleeBase
 {
 	public override void _Ready()
 	{
-		rotationSpeedFormula = () => rotationSpeed + 100f;
-		damageFormula = () => damage + 50;
+		rotationSpeedFormula = () => rotationSpeed + 200f;
+		damageFormula = () => damage + 30;
 
 		base._Ready();
 	}

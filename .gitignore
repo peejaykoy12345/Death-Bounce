@@ -2,6 +2,9 @@
 .godot/
 /android/
 
+# Save data
+stats.json
+
 # Editor settings
 .vscode/
 *.vscode
