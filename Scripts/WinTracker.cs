@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using Godot;
 
@@ -40,10 +41,16 @@ public partial class WinTracker : Node
         }
     }
 
+    private Dictionary<string, int> sort_dict()
+    {
+        return winHistory.OrderByDescending(pair => pair.Value).ToDictionary(pair => pair.Key, pair => pair.Value);
+    }
+
     private void Save()
     {
+        Dictionary<string, int> sorted_dict = sort_dict();
         Directory.CreateDirectory(Path.GetDirectoryName(savePath)!);
-        string json = JsonSerializer.Serialize(winHistory, new JsonSerializerOptions { WriteIndented = true });
+        string json = JsonSerializer.Serialize(sorted_dict, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(savePath, json);
     }
 

@@ -25,15 +25,16 @@ public partial class Shield : WeaponBase
 
 		rotator.AreaEntered += async  (Area2D area) =>
 		{
+			if (area is Arrow arrow)
+			{
+				await arrow.owner.TakeDamage(this, arrow.damage);
+				return;
+			}
+
 			CharacterBody2D area_parent = (CharacterBody2D)area.GetParent();
 			if (area_parent is WeaponBase wb)
 			{
 				await wb.TakeDamage(this, wb.damage);
-			}
-
-			if (area is Arrow arrow)
-			{
-				await arrow.owner.TakeDamage(this, arrow.damage);
 			}
 		};
 	}

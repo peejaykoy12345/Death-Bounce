@@ -75,13 +75,13 @@ public partial class WeaponBase : CharacterBody2D
 
 		rotator.AreaEntered += async (Area2D area) =>
 		{
+			if (area is Arrow arrow) return;
+
 			CharacterBody2D area_parent = (CharacterBody2D)area.GetParent();
 			if (area_parent is WeaponBase wb)
 			{
 				await wb.onParry();
 			}
-
-			if (area is Arrow arrow) arrow.QueueFree();
 		};
 	}
 
@@ -165,12 +165,10 @@ public partial class WeaponBase : CharacterBody2D
 		isNotFrozen = true;
 	}
 
-	int count;
 	public async Task TakeDamage(WeaponBase attacker, float dmg)
 	{
 		health = Mathf.Max(0, health - (int) dmg);
 		HitSFX.Play();
-		count++;
 		if (health <= 0)
 		{
 			QueueFree();
