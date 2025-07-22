@@ -114,8 +114,28 @@ public partial class WeaponBase : CharacterBody2D
 			}
 		}
 
-		if (Position.X <= left || Position.X >= right) dx *= -1;
-		if (Position.Y <= top || Position.Y >= bottom) dy *= -1;
+	if (Position.X <= left)
+	{
+		dx = 1;
+		Position = new Vector2(left + 10, Position.Y); // gently push out
+	}
+	else if (Position.X >= right)
+	{
+		dx = -1;
+		Position = new Vector2(right - 10, Position.Y);
+	}
+
+	if (Position.Y <= top)
+	{
+		dy = 1;
+		Position = new Vector2(Position.X, top + 10);
+	}
+	else if (Position.Y >= bottom)
+	{
+		dy = -1;
+		Position = new Vector2(Position.X, bottom - 10);
+	}
+
 
 		Position = new Vector2(
 			Mathf.Clamp(Position.X, left - 100, right + 100),

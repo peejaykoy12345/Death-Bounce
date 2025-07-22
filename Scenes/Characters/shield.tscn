@@ -41,7 +41,7 @@ position = Vector2(60, -1)
 shape = SubResource("CapsuleShape2D_67ih2")
 
 [node name="LevelTimer" type="Timer" parent="."]
-wait_time = 10.508
+wait_time = 7.0
 autostart = true
 
 [node name="HealthIndicator" type="LineEdit" parent="."]

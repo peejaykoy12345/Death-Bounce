@@ -6,27 +6,34 @@ public partial class Shield : WeaponBase
 	[ExportGroup("Script Settings")]
 	[Export] CollisionShape2D collisionShape;
 	private Vector2 size;
-	private float scale_multiplier = 1;
+	private float scale_multiplier = 2;
 	public override void _Ready()
 	{
 		base._Ready();
 
 		size = weapon_sprite.Scale;
 
+		resize();
+
 		levelTimer.Timeout += () =>
 		{
 			level += 1;
-			scale_multiplier = level;
+			scale_multiplier = level + 1;
 			resize();
 			if (level >= maxLevel) levelTimer.Stop();
 		};
 
 		rotator.AreaEntered += async  (Area2D area) =>
 		{
-			CharacterBody2D area_parent =  (CharacterBody2D)area.GetParent();
+			CharacterBody2D area_parent = (CharacterBody2D)area.GetParent();
 			if (area_parent is WeaponBase wb)
 			{
-				await wb.TakeDamage(this, wb.damage / 2.0f);
+				await wb.TakeDamage(this, wb.damage);
+			}
+
+			if (area is Arrow arrow)
+			{
+				await arrow.owner.TakeDamage(this, arrow.damage);
 			}
 		};
 	}
