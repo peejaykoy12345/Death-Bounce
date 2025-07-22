@@ -18,11 +18,11 @@ public partial class MeleeBase : WeaponBase
 			if (level >= maxLevel) levelTimer.Stop();
 		};
 
-		rotator.BodyEntered += (Node2D body) =>
+		rotator.BodyEntered += async (Node2D body) =>
 		{
 			if (body == this) return;
 
-			if (body.HasMethod("TakeDamage")) body.Call("TakeDamage", this, damage);
+			if (body is WeaponBase wb) await wb.TakeDamage(this, damage);
 		};
 	}
 }

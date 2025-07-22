@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://wguno5b26dwn"]
+
+[ext_resource type="Script" uid="uid://cxue1gy84u6rx" path="res://Scripts/Shield.cs" id="1_16ldn"]
+[ext_resource type="Texture2D" uid="uid://pa01arape3np" path="res://Assets/Images/gray_circle.png" id="1_u5pr6"]
+[ext_resource type="Texture2D" uid="uid://c1l6sbv7wsid" path="res://Assets/Images/shield.png" id="2_16ldn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5pr6"]
+radius = 48.0104
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67ih2"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16ldn"]
+
+[node name="Shield" type="CharacterBody2D" node_paths=PackedStringArray("collisionShape", "weapon_sprite")]
+collision_mask = 0
+script = ExtResource("1_16ldn")
+collisionShape = NodePath("Rotator/CollisionShape2D")
+rotationSpeed = 200.0
+weapon_sprite = NodePath("Rotator/Shield")
+
+[node name="GrayCircle" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_u5pr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u5pr6")
+
+[node name="Rotator" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Shield" type="Sprite2D" parent="Rotator"]
+position = Vector2(60, -1)
+scale = Vector2(1, 0.587)
+texture = ExtResource("2_16ldn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
+position = Vector2(60, -1)
+shape = SubResource("CapsuleShape2D_67ih2")
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 10.508
+autostart = true
+
+[node name="HealthIndicator" type="LineEdit" parent="."]
+offset_left = -33.0
+offset_top = -14.0
+offset_right = 35.5625
+offset_bottom = 17.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_16ldn")
+alignment = 1

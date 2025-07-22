@@ -22,6 +22,8 @@ public partial class WeaponBase : CharacterBody2D
 
 	[ExportGroup("Script Settings")]
 	[Export] public Camera2D camera;
+	[Export] public Sprite2D weapon_sprite;
+	[Export] public Sprite2D circle_sprite;
 
 	protected Node2D arena;
 	protected AudioStreamPlayer2D HitSFX;
@@ -114,6 +116,11 @@ public partial class WeaponBase : CharacterBody2D
 
 		if (Position.X <= left || Position.X >= right) dx *= -1;
 		if (Position.Y <= top || Position.Y >= bottom) dy *= -1;
+
+		Position = new Vector2(
+			Mathf.Clamp(Position.X, left - 100, right + 100),
+			Mathf.Clamp(Position.Y, top - 100, bottom + 100)
+		);
 	}
 
 	public async Task onParry()
@@ -139,7 +146,7 @@ public partial class WeaponBase : CharacterBody2D
 	}
 
 	int count;
-	public async void TakeDamage(WeaponBase attacker, float dmg)
+	public async Task TakeDamage(WeaponBase attacker, float dmg)
 	{
 		health = Mathf.Max(0, health - (int) dmg);
 		HitSFX.Play();

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b80mivrjnc56d"]
 
-[ext_resource type="Script" uid="uid://cy1ur4hjdy87r" path="res://Scripts/Dagger.cs" id="1_53a2o"]
-[ext_resource type="Texture2D" uid="uid://cm8twg6trugcb" path="res://Assets/Images/crimson_red_circle.png" id="2_0p06j"]
-[ext_resource type="Texture2D" uid="uid://g2vxjkrgxp06" path="res://Assets/Images/dagger.png" id="3_0p06j"]
+[ext_resource type="Script" uid="uid://5inipnepkx1q" path="res://Scripts/Dagger.cs" id="1_53a2o"]
+[ext_resource type="Texture2D" uid="uid://jnvy7svdtblk" path="res://Assets/Images/crimson_red_circle.png" id="2_0p06j"]
+[ext_resource type="Texture2D" uid="uid://bwtqiv8gpm4oh" path="res://Assets/Images/dagger.png" id="3_0p06j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_53a2o"]
 radius = 32.0156
