@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1l6sbv7wsid" path="res://Assets/Images/shield.png" id="2_16ldn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u5pr6"]
-radius = 48.0104
+radius = 33.0151
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67ih2"]
 radius = 6.0
@@ -21,7 +21,6 @@ rotationSpeed = 200.0
 weapon_sprite = NodePath("Rotator/Shield")
 
 [node name="GrayCircle" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_u5pr6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,12 +31,12 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Shield" type="Sprite2D" parent="Rotator"]
-position = Vector2(60, -1)
+position = Vector2(41, -1)
 scale = Vector2(1, 0.587)
 texture = ExtResource("2_16ldn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotator"]
-position = Vector2(60, -1)
+position = Vector2(41, 0)
 shape = SubResource("CapsuleShape2D_67ih2")
 
 [node name="LevelTimer" type="Timer" parent="."]

@@ -36,7 +36,6 @@ camera = NodePath("../Camera2D")
 [node name="Bow" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_g2joa")]
 position = Vector2(-214, -112)
 rotationSpeed = 200.0
-health = 1000
 camera = NodePath("../Camera2D")
 
 [node name="Shield" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("6_fsjwy")]

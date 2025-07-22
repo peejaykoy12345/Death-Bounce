@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqwy87f0suw1i"]
 
-[ext_resource type="Script" uid="uid://div73owhbngsm" path="res://Scripts/Arrow.cs" id="1_1fs1j"]
-[ext_resource type="Texture2D" uid="uid://cpj7icq0si64a" path="res://Assets/Images/arrow.png" id="1_tcrmf"]
+[ext_resource type="Script" uid="uid://cijl72llgkjmh" path="res://Scripts/Arrow.cs" id="1_1fs1j"]
+[ext_resource type="Texture2D" uid="uid://duoy7fi486r2o" path="res://Assets/Images/arrow.png" id="1_tcrmf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tcrmf"]
 radius = 7.0
 height = 40.0
 
 [node name="Arrow" type="Area2D" node_paths=PackedStringArray("VisibleOnScreenNotifier")]
-collision_layer = 0
+collision_layer = 2
 script = ExtResource("1_1fs1j")
 VisibleOnScreenNotifier = NodePath("VisibleOnScreenNotifier2D")
 

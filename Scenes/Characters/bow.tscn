@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://suygixj4v101"]
 
-[ext_resource type="Script" uid="uid://c3kpxw2bli3am" path="res://Scripts/Bow.cs" id="1_gmfvn"]
+[ext_resource type="Script" uid="uid://o7ude20qen2g" path="res://Scripts/Bow.cs" id="1_gmfvn"]
 [ext_resource type="PackedScene" uid="uid://bqwy87f0suw1i" path="res://Scenes/Projectiles/arrow.tscn" id="2_v5y37"]
-[ext_resource type="Texture2D" uid="uid://d0iehyoca71c3" path="res://Assets/Images/soft_cyan_circle.png" id="2_yhsyx"]
-[ext_resource type="Texture2D" uid="uid://c7q3fq8thk1nx" path="res://Assets/Images/bow.png" id="3_v5y37"]
+[ext_resource type="Texture2D" uid="uid://ccndmklbrmrca" path="res://Assets/Images/soft_cyan_circle.png" id="2_yhsyx"]
+[ext_resource type="Texture2D" uid="uid://bp57yl5paf6ju" path="res://Assets/Images/bow.png" id="3_v5y37"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n41y1"]
 radius = 31.4006
@@ -19,7 +19,6 @@ projectile = ExtResource("2_v5y37")
 projectile_start_marker = NodePath("Rotator/ProjectileStartPosition")
 shoot_interval = NodePath("ShootInterval")
 rotationSpeed = 100.0
-health = 1000.0
 maxLevel = 7
 
 [node name="LevelTimer" type="Timer" parent="."]
