@@ -15,31 +15,32 @@ script = ExtResource("1_kcpg1")
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Spear" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_nnts3")]
-position = Vector2(-128, 75)
+position = Vector2(63, 242)
 rotationSpeed = 100.0
 damage = 50.0
 maxLevel = 20
 camera = NodePath("../Camera2D")
 
 [node name="Sword" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_ra5jo")]
+position = Vector2(294, -225)
 rotationSpeed = 200.0
 damage = 100.0
 camera = NodePath("../Camera2D")
 
 [node name="Dagger" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_nnts3")]
-position = Vector2(99, 3)
+position = Vector2(496, 5)
 rotationSpeed = 600.0
 damage = 50.0
 maxLevel = 5
 camera = NodePath("../Camera2D")
 
 [node name="Bow" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_g2joa")]
-position = Vector2(-214, -112)
+position = Vector2(-276, -247)
 rotationSpeed = 200.0
 camera = NodePath("../Camera2D")
 
 [node name="Shield" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("6_fsjwy")]
-position = Vector2(-500, 0)
+position = Vector2(-459, 227)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]

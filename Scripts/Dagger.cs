@@ -19,16 +19,16 @@ public partial class Dagger : MeleeBase
 		{
 			if (body == this) return;
 
-			if (body.HasMethod("TakeDamage"))
+			if (body is WeaponBase wb)
 			{
-				ApplyPoison((CharacterBody2D)body);
+				ApplyPoison(wb);
 			}
 		};
 	}
 
 	// To apply poison
 	// Note to future me: Theres only one of these functions
-	private async void ApplyPoison(CharacterBody2D character)
+	private async void ApplyPoison(WeaponBase character)
 	{
 		if (poison_affected_characters.Contains(character)) return;
 
@@ -41,7 +41,7 @@ public partial class Dagger : MeleeBase
 
 			if (IsInstanceValid(character))
 			{
-				character.Call("TakeDamageButWithoutStun", poison_damage);
+				character.TakeDamageButWithoutStun(poison_damage);
 			}
 		}
 	}

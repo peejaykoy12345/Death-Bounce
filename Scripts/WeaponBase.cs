@@ -180,8 +180,8 @@ public partial class WeaponBase : CharacterBody2D
 		await Freeze(0.2f);
 	}
 
-	public void TakeDamageButWithoutStun(float dmg)
+	public void TakeDamageButWithoutStun(int dmg)
 	{
-		health = Mathf.Max(1, health - (int)dmg);
+		health = Mathf.Max(1, health - dmg);
 	}
 }
